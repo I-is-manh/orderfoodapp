@@ -1,5 +1,6 @@
 package dal;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -32,5 +33,17 @@ public class daoFood {
             f = new Food(c.getInt(0),c.getInt(1),c.getString(2),c.getInt(3),c.getString(4),c.getFloat(5),c.getFloat(6),c.getFloat(7));
         }
         return f;
+    }
+    public long inserFood(int categoryID,String name,int linkimg,String description,float price,float discount,double mark){
+        SQLiteDatabase sqLiteDatabase = db.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put("categoryID",categoryID);
+        values.put("NAME",name);
+        values.put("LINKIMG",linkimg);
+        values.put("DESCRIPTION",description);
+        values.put("PRICE",price);
+        values.put("DISCOUTN_PERCENT",discount);
+        values.put("MARK",mark);
+        return sqLiteDatabase.insert("tblFood",null,values);
     }
 }

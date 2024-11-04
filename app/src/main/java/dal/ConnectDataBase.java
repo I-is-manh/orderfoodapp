@@ -98,8 +98,16 @@ public class ConnectDataBase extends SQLiteOpenHelper {
         String tblShoppingCartDetail = "create table tblShoppingCartDetail(" +
                 "ShoppingCartId integer references tblShoppingCart(ShoppingCartId)," +
                 "foodId int references tblFood(foodId)," +
+                "quantity integer," +
                 "primary key(ShoppingCartId,foodId)" +
                 ")";
+        db.execSQL(tblShoppingCartDetail);
+        String tblVoucher4Order = "create table tblVoucher4Order (" +
+                "orderID  integer references tblOrder(orderID)," +
+                "voucherId integer references tblVoucher(voucherId)," +
+                "primary key(orderID,voucherId)" +
+                ")";
+        db.execSQL(tblVoucher4Order);
     }
     public void open(){
         SQLiteDatabase db = this.getReadableDatabase();

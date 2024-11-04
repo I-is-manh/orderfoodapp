@@ -66,16 +66,16 @@ public class CartFrag extends Fragment {
 
         // Dữ liệu mẫu cho các item trong giỏ hàng
         cartItemList = new ArrayList<>();
-        cartItemList.add(new Food("Gà rán Texas Original", 2, 400, "garena"));
-        cartItemList.add(new Food("Gà rán Texas", 3, 200, "garena1"));
-        cartItemList.add(new Food("Gà rán Texas", 3, 200, "garena1"));
-        cartItemList.add(new Food("Gà rán Texas", 3, 200, "garena1"));
-        cartItemList.add(new Food("Gà rán Texas", 3, 200, "garena1"));
-        cartItemList.add(new Food("Gà rán Texas", 3, 200, "garena1"));
-        cartItemList.add(new Food("Gà rán Texas", 3, 200, "garena1"));
-        cartItemList.add(new Food("Gà rán Texas", 3, 200, "garena1"));
-        cartItemList.add(new Food("Gà rán Texas", 3, 200, "garena1"));
-        cartItemList.add(new Food("Gà rán Texas", 3, 200, "garena1"));
+//        cartItemList.add(new Food("Gà rán Texas Original", 2, 400, "garena"));
+//        cartItemList.add(new Food("Gà rán Texas", 3, 200, "garena1"));
+//        cartItemList.add(new Food("Gà rán Texas", 3, 200, "garena1"));
+//        cartItemList.add(new Food("Gà rán Texas", 3, 200, "garena1"));
+//        cartItemList.add(new Food("Gà rán Texas", 3, 200, "garena1"));
+//        cartItemList.add(new Food("Gà rán Texas", 3, 200, "garena1"));
+//        cartItemList.add(new Food("Gà rán Texas", 3, 200, "garena1"));
+//        cartItemList.add(new Food("Gà rán Texas", 3, 200, "garena1"));
+//        cartItemList.add(new Food("Gà rán Texas", 3, 200, "garena1"));
+//        cartItemList.add(new Food("Gà rán Texas", 3, 200, "garena1"));
 
         // Cài đặt Adapter cho RecyclerView
         cartAdapter = new CartAdapter(getContext() ,cartItemList);

@@ -12,15 +12,15 @@ public class daoCustomer {
     public daoCustomer(Context context){
         db = new ConnectDataBase(context);
     }
-    public void insertCustomer(String email,String password,String address,String phonenumber,int linkimg){
+    public long insertCustomer(String email,String password,String address,String phonenumber,int linkimg){
         SQLiteDatabase database = db.getWritableDatabase();
         ContentValues values = new ContentValues();
-        values.put("email",email);
+        values.put("EMAIL",email);
         values.put("PASSWORD",password);
         values.put("ADDRESS",address);
         values.put("PHONENUMBER",phonenumber);
-        values.put("linkimg",linkimg);
-        database.insert("tblCustomer",null,values);
+        values.put("LINKAVT",linkimg);
+        return database.insert("tblCustomer",null,values);
     }
     public void updateCustomer(int id,String email,String password,String address,String phonenumber,int linkimg){
         SQLiteDatabase database = db.getWritableDatabase();

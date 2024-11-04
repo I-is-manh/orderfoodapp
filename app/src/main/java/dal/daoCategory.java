@@ -15,11 +15,11 @@ public class daoCategory {
     public daoCategory(Context context){
         db = new ConnectDataBase(context);
     }
-    public void insertCategory(String name) {
+    public long insertCategory(String name) {
         SQLiteDatabase database = db.getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put("NAME", name);
-        database.insert("tblCategory", null, values);
+        return database.insert("tblCategory", null, values);
     }
     public List<Category> getListCategory(){
         List<Category> list = new ArrayList<>();
