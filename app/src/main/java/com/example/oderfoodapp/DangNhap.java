@@ -34,7 +34,6 @@ public class DangNhap extends AppCompatActivity {
         setContentView(R.layout.dang_nhap);
         // code nhưng dưới đây là để mở sqlite trên máy mn ae chỉ cần chạy một lần để có thể thêm vào trong app
 
-
         ConnectDataBase conn = new ConnectDataBase(DangNhap.this);
         //thêm các bảng vào ứng dụng trong một lần chạy
         //Insert dữ liệu cho bảng category
