@@ -109,17 +109,13 @@ public class DangNhap extends AppCompatActivity {
 //        } catch (ParseException e) {
 //            throw new RuntimeException(e);
 //        }
-        // sửa lại bảng tblFeedback bảng này thiếu vài cột
-//        SQLiteDatabase database = conn.getWritableDatabase();
-//        database.execSQL("alter table tblFeedBack add feedbackDetail text");
-//        database.execSQL("alter table tblFeedBack add mark float");
+
         //Insert dữ liệu cho bảng feedback
 //        daoFeedBack feedBack = new daoFeedBack(DangNhap.this);
 //         feedBack.insertFeedBack(1,1,"Món ăn rất ngon",4.5);
 //         feedBack.insertFeedBack(1,2,"Hơi ngán một tý",2.5);
 //         feedBack.insertFeedBack(2,1,"ôi món ăn tuyệt vời",4.9);
 //         feedBack.insertFeedBack(1,36,"bánh mỳ heo quay đối với tôi là chân ái",5.0);
-
 
         // end
 

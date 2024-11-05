@@ -68,7 +68,9 @@ public class ConnectDataBase extends SQLiteOpenHelper {
         String tblFeedBack = "create table tblFeedBack(" +
                 "feedbackId integer primary key autoincrement," +
                 "customerID int references tblCustomer(customerID)," +
-                "foodId int references tblFood(foodId)" +
+                "foodId int references tblFood(foodId)," +
+                "feedbackDetail text," +
+                "mark float" +
                 ")";
         db.execSQL(tblFeedBack);
         String tblVoucher = "create table tblVoucher(" +
