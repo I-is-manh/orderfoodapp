@@ -1,14 +1,14 @@
 <resources>
     <string name="app_name">Food is Life</string>
     <string name="food_is_life">Food is Life</string>
-    <string name="email_phone">Email hoặc Số điện thoại</string>
+    <string name="email_phone">Email</string>
     <string name="pass">Mật khẩu</string>
     <string name="forget_pass">Quên mật khẩu?</string>
     <string name="dang_nhap">Đăng nhập</string>
     <string name="no_acc">Bạn chưa có tài khoản?</string>
     <string name="dang_ky">Đăng ký</string>
     <string name="nameapp">Food is Life</string>
-    <string name="email_phone_DK">Email hoặc Số điện thoại</string>
+    <string name="email_phone_DK">Email</string>
     <string name="pwDK">Mật khẩu</string>
     <string name="pw_nhaplai">Nhập lại mật khẩu</string>
     <string name="dangky">Đăng ký</string>

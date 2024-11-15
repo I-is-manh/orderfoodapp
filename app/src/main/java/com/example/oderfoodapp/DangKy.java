@@ -4,9 +4,12 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.text.Layout;
+import android.util.Patterns;
 import android.view.View;
+import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.activity.OnBackPressedCallback;
@@ -16,17 +19,46 @@ import androidx.core.view.GravityCompat;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import com.google.android.material.textfield.TextInputEditText;
+import com.google.android.material.textfield.TextInputLayout;
+
+import dal.daoCustomer;
+
 public class DangKy extends AppCompatActivity {
-
+    // Khai báo các view ở trên đầu
     private LinearLayout linearDangKy;
-
+    TextView dangNhap;
+    Button btnDangKy;
+    TextInputEditText email;
+    TextInputEditText pass;
+    TextInputEditText repass;
+    TextInputLayout emailLayout;
+    TextInputLayout passLayout;
+    TextInputLayout repassLayout;
+    daoCustomer dCustomer = new daoCustomer(DangKy.this);
+    public static boolean isValidEmail(String email) {
+        if (email == null || email.isEmpty()) {
+            return false;
+        }
+        return Patterns.EMAIL_ADDRESS.matcher(email).matches();
+    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.dang_ky);
 
-        TextView dangNhap = findViewById(R.id.tv_DangNhap);
+        // Ánh xạ các view ở đây
+        btnDangKy = findViewById(R.id.btn_DangKy);
+        dangNhap = findViewById(R.id.tv_DangNhap);
+        email = findViewById(R.id.edt_email_phone);
+        pass = findViewById(R.id.edt_MK);
+        repass = findViewById(R.id.edt_NhapLaiMK);
+        emailLayout = findViewById(R.id.emaildklayout);
+        passLayout = findViewById(R.id.mkdkLayout);
+        repassLayout = findViewById(R.id.repassdklayout);
+
+        // xử lý khi click vào textview đăng nhập
         dangNhap.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -34,6 +66,74 @@ public class DangKy extends AppCompatActivity {
                 // Chuyển đến màn hình đăng nhập
                 Intent intent = new Intent(DangKy.this, DangNhap.class);
                 startActivity(intent);
+            }
+        });
+
+        // xử lý khi click vaào btn Đăng ký
+        btnDangKy.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String emailText = email.getText().toString();
+                String passText = pass.getText().toString();
+                String repassText = repass.getText().toString();
+                Toast.makeText(DangKy.this,emailText , Toast.LENGTH_SHORT).show();
+                Toast.makeText(DangKy.this,passText , Toast.LENGTH_SHORT).show();
+                Toast.makeText(DangKy.this,repassText , Toast.LENGTH_SHORT).show();
+                boolean checkDK = true;
+                if(emailText.isEmpty()){
+                    emailLayout.setError("Không được bỏ trống");
+                    checkDK = false;
+                }
+                else{
+                    emailLayout.setError(null);
+                }
+                if(!isValidEmail(emailText)){
+                    emailLayout.setError("Email không hợp lệ");
+                    checkDK = false;
+                }
+                else{
+                    emailLayout.setError(null);
+                }
+                if(passText.isEmpty()){
+                    passLayout.setError("Không được bỏ trống");
+                    checkDK = false;
+                }
+                else{
+                    passLayout.setError(null);
+                }
+                if(repassText.isEmpty()){
+                    repassLayout.setError("Không được bỏ trống");
+                    checkDK = false;
+                }
+                else{
+                    repassLayout.setError(null);
+                }
+                if(!passText.equals(repassText)){
+                    passLayout.setError("Mật khẩu không trùng khớp");
+                    repassLayout.setError("Mật khẩu không trùng khớp");
+                    checkDK = false;
+                }
+                else{
+                    passLayout.setError(null);
+                    repassLayout.setError(null);
+                }
+                if(checkDK){
+                    if(!dCustomer.checkEmailExist(emailText)){
+                        if(dCustomer.SignUpCustomer(emailText,passText) != 0){
+                            Toast.makeText(DangKy.this, "Đăng ký thành công", Toast.LENGTH_SHORT).show();
+                            Intent intent = new Intent(DangKy.this, TrangChung.class);
+                            startActivity(intent);
+                            finish();
+
+                        }
+                    }
+                    else{
+                        emailLayout.setError("Email này đã tồn tại");
+                    }
+
+
+                }
+
             }
         });
 

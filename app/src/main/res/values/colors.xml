@@ -4,5 +4,6 @@
     <color name="white">#FFFFFFFF</color>
     <color name="orange">#FF5722</color>
     <color name="lightgrey">#FF5722</color>
+    <color name="error">#FF1403</color>
 
 </resources>

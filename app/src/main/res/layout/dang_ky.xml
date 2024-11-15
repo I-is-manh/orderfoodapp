@@ -26,6 +26,7 @@
         android:textSize="48sp" />
 
     <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/emaildklayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="16dp"
@@ -42,6 +43,7 @@
 
     <!-- Sử dụng TextInputLayout cho mật khẩu -->
     <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/mkdkLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="16dp"
@@ -60,6 +62,7 @@
 
     <!-- Sử dụng TextInputLayout cho nhập lại mật khẩu -->
     <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/repassdklayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
