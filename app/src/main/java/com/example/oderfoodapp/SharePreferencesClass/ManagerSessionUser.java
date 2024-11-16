@@ -7,11 +7,11 @@ public class ManagerSessionUser {
     private static final String pref_name = "orderapp";
     private static final String email = "email";
     private static final String password = "isLoggedIn";
-    private SharedPreferences sharedPreferences;
+    private static  SharedPreferences sharedPreferences;
     private SharedPreferences.Editor editor;
-    private Context mcontext;
+
     public ManagerSessionUser(Context mcontext){
-        sharedPreferences = mcontext.getSharedPreferences("pref_name",Context.MODE_PRIVATE);
+        sharedPreferences = mcontext.getSharedPreferences(pref_name,Context.MODE_PRIVATE);
         editor = sharedPreferences.edit();
     }
     public boolean createLoginSession(String email,String password){

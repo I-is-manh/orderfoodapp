@@ -5,5 +5,6 @@
     <color name="orange">#FF5722</color>
     <color name="lightgrey">#FF5722</color>
     <color name="error">#FF1403</color>
-
+    <color name="maincolor">#35A7CC</color>
+    <color name="searchbox">#A8B3B6</color>
 </resources>

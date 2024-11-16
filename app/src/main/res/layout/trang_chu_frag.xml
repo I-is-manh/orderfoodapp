@@ -1,19 +1,62 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#E91E63"
-    android:orientation="vertical"
-    android:padding="20dp"
-    tools:context=".fragment.ManageAccFrag">
-
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    android:paddingHorizontal="10dp"
+    android:fillViewport="true">
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="Trang Chủ"
-        android:textColor="@color/white"
-        android:textSize="30sp" />
+        android:orientation="vertical"
+        >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="5"
+            android:gravity="center"
+            >
 
-</LinearLayout>
+            <SearchView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="4"
+                android:queryHint="Tìm món ăn..."
+                android:background="@drawable/customsearch"
+                android:iconifiedByDefault="false"
+                />
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:layout_width="60dp"
+                android:layout_height="70dp"
+                android:src="@drawable/baseline_account_circle_24"
+                android:layout_weight="1"
+                android:background="@drawable/circleimage"
+                />
+
+        </LinearLayout>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Xin chào!"
+                android:textSize="30dp"
+
+                />
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Bạn muốn ăn gì!"
+                android:textSize="20dp"
+
+                />
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/listcategory"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingVertical="10dp"
+            />
+    </LinearLayout>
+
+</ScrollView>

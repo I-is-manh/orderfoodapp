@@ -19,6 +19,7 @@ import androidx.core.view.GravityCompat;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import com.example.oderfoodapp.SharePreferencesClass.ManagerSessionUser;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
 
@@ -44,6 +45,8 @@ public class DangKy extends AppCompatActivity {
     }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        // khai báo một sharepreferences để lưu dữ liệu cho toàn bộ ứng dụng
+        ManagerSessionUser sessionUser = new ManagerSessionUser(DangKy.this);
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.dang_ky);
@@ -76,9 +79,6 @@ public class DangKy extends AppCompatActivity {
                 String emailText = email.getText().toString();
                 String passText = pass.getText().toString();
                 String repassText = repass.getText().toString();
-                Toast.makeText(DangKy.this,emailText , Toast.LENGTH_SHORT).show();
-                Toast.makeText(DangKy.this,passText , Toast.LENGTH_SHORT).show();
-                Toast.makeText(DangKy.this,repassText , Toast.LENGTH_SHORT).show();
                 boolean checkDK = true;
                 if(emailText.isEmpty()){
                     emailLayout.setError("Không được bỏ trống");
@@ -113,18 +113,20 @@ public class DangKy extends AppCompatActivity {
                     repassLayout.setError("Mật khẩu không trùng khớp");
                     checkDK = false;
                 }
-                else{
-                    passLayout.setError(null);
-                    repassLayout.setError(null);
-                }
                 if(checkDK){
                     if(!dCustomer.checkEmailExist(emailText)){
                         if(dCustomer.SignUpCustomer(emailText,passText) != 0){
+                            sessionUser.createLoginSession(emailText,passText);
+                            sessionUser.checkLogin();
                             Toast.makeText(DangKy.this, "Đăng ký thành công", Toast.LENGTH_SHORT).show();
+                            try {
+                                Thread.sleep(2000);
+                            } catch (InterruptedException e) {
+                                throw new RuntimeException(e);
+                            }
                             Intent intent = new Intent(DangKy.this, TrangChung.class);
                             startActivity(intent);
                             finish();
-
                         }
                     }
                     else{

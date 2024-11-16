@@ -3,11 +3,13 @@
     <style name="Base.Theme.OderFoodApp" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your light theme here. -->
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+         <item name="android:statusBarColor">#00FFFFFF</item>
     </style>
 
     <style name="Theme.OderFoodApp" parent="Base.Theme.OderFoodApp" />
     <style name="RatingBar" parent="Theme.AppCompat">
-        <item name="colorControlNormal">#b4b3b5</item>
-        <item name="colorControlActivated">#FFCC00</item>
+<!--        <item name="colorControlNormal">#b4b3b5</item>-->
+<!--        <item name="colorControlActivated">#FFCC00</item>-->
     </style>
+
 </resources>
